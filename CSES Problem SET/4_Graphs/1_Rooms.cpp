@@ -1,5 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
+// 2d matrix given with doys as floors and # as walls
+// continuos adjacent dots make up one room, find total rooms
+// iterate over all the cells, if # move ahead, if "." then call dfs and mark all the adjacent dots visited and increase the counter
+// do same for newxt unconnected dot found
 vector<vector<int>> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
 void dfs(vector<vector<char>>&arr,vector<vector<bool>>&visit, int i , int j){

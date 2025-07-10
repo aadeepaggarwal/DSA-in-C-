@@ -9,6 +9,10 @@ void dfs(const vector<vector<int>>& graph, vector<bool>& visited, int node) {
         }
     }
 }
+// total independent graphs have to be counted, unconnected components
+// then match elements from one graph to another
+// call dfs on all nodes which are not visited, make them mark viisted in every dfs
+// count++ whnever dfs called
 
 int main() {
     int n, m;

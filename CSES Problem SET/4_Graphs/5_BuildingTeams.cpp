@@ -1,6 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// bipartitie wala question
+// mark cureent node as group 1
+// mark all neighbours as group 2
+// if neighbour's color is same as current node return false
+// store groups/colors in a separate array
 int main()
 {
     int n, m;

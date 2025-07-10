@@ -1,5 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+// same find shortest path between 2 nodes,
+// do bfs from 1st to nth node
 
 int main() {
     int n, m;

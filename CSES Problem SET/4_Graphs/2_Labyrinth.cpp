@@ -56,7 +56,12 @@ using namespace std;
 
 vector<pair<int, int>> dir = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 vector<char> move_dir = {'U', 'D', 'L', 'R'};
-
+// A to B minimum distance needed, walk only on "." and wall is "#"
+// so traverse full matrix, if A comes start bfs because we spread equally in all directions via bfs,
+// as soon as B comes stop, stop wala path is shortest automatically
+// unweighted shortest path ke liye use bfs
+// to get back the path store parents 
+// retrace parent direction till we reach A
 int main() {
     int n, m;
     cin >> n >> m;

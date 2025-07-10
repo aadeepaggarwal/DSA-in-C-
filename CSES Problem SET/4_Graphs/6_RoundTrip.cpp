@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+// cycle detection, run dfs , if visited node revisit mark true cycle
 bool dfs(int node, int parent, const vector<vector<int>>& graph, vector<int>& visited, vector<int>& parent_arr, int& cycle_start, int& cycle_end) {
     visited[node] = 1;
     for (int neighbor : graph[node]) {
