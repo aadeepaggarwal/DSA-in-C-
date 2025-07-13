@@ -1,24 +1,47 @@
-#include <bits/stdc++.h>
-using namespace std;
+class Solution {
+public:
+    char processStr(string s, long long k) {
+        string res = s;
+        vector<long long> lengths;
+        long long len = 0;
 
-int main() {
-    int t;
-    cin>>t;
-    while(t--){
-        int a,b;cin>>a>>b;
-        int ans=0;
-        ans+=b%2==0? b/2:(b+1)/2;
-        if(((ans*15)-b*4)>=a){
-            cout<<ans<<endl;
-            
+        for (char op : res) {
+            if (op >= 'a' && op <= 'z') {
+                len++;
+            } else if (op == '*') {
+                if (len > 0) {
+                    len--;
+                }
+            } else if (op == '#') {
+ 
+                len *= 2;
+            }
+            lengths.push_back(len);
         }
-        else{
-            int needed=a-((ans*15)-b*4);
-            ans+=(needed/15)+1;
-            cout<<ans<<endl;
-            
+
+        if (k >= len) {
+            return '.';
         }
+
+        for (int i = res.length() - 1; i >= 0; --i) {
+            char op = res[i];
+            long long len_before = (i > 0) ? lengths[i - 1] : 0;
+
+            if (op == '#') {
+                if (len_before > 0) {
+                    k %= len_before;
+                }
+            } else if (op == '%') {
+                if (len_before > 0) {
+                    k = len_before - 1 - k;
+                }
+            } else if (op >= 'a' && op <= 'z') {
+               if (k == len_before) {
+                    return op;
+                }
+            }
+        }
+
+        return '.'; 
     }
-
-    return 0;
-}
+};
